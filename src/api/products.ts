@@ -15,8 +15,8 @@ type ProductResponseItem = {
 };
 
 
-export const getProductsList = async() => {
-    const res = await fetch("https://naszsklep-api.vercel.app/api/products");
+export const getProductsList = async(pageNumber: number) => {
+    const res = await fetch(`https://naszsklep-api.vercel.app/api/products?take=20&offset=${pageNumber * 20}`);
 	const productsResponse = (await res.json()) as ProductResponseItem[];
 	const products = productsResponse.map(
         productResponseItemToProductItemType,
@@ -39,6 +39,7 @@ const productResponseItemToProductItemType = (product: ProductResponseItem): Pro
 		coverImage: {
 			alt: product.title,
 			src: product.image
-		}
+		},
+		description: product.description,
     }
 }

@@ -3,8 +3,6 @@ import { ProductCoverImage } from "@/ui/atoms/ProductCoverImage";
 import { ProductListItemDescription } from "@/ui/atoms/ProductListItemDescription";
 import type { ProductItemType } from "@/utils/types";
 
-
-
 type ProductItemProps = {
 	product: ProductItemType;
 };
